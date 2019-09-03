@@ -15,13 +15,29 @@ knitr::opts_chunk$set(echo = TRUE)
 library(gapminder)
 library(tidyverse)
 
-gapminder_unfiltered <- gapminder
+data("gapminder_unfiltered")
 
 gapminder_unfiltered %>%
   group_by(year) %>%
-  arrange (year) -> 
+  filter(lifeExp == max(lifeExp)) %>%
+  arrange(year) -> 
   sumdat
 ```
+
+```{r}
+sumdat %>% 
+  ggplot(aes(year, lifeExp)) +
+  geom_point(aes(color = country)) +
+  geom_smooth(method = 'lm', se = FALSE) + xlab("Year") + ylab("Life Expectancy") + ggtitle("Famous Chart") +
+  geom_point(shape = 1)
+
+
+
+
+?ggplot
+
+```
+
 
 
 
