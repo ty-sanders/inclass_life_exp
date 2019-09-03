@@ -1,0 +1,28 @@
+---
+title: "Lab 1"
+author: "Janice Cessna"
+date: "September 3, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+```{r}
+library(gapminder)
+library(tidyverse)
+
+gapminder_unfiltered <- gapminder
+
+gapminder_unfiltered %>%
+  group_by(year) %>%
+  arrange (year) -> 
+  sumdat
+```
+
+
+
+
